@@ -1,12 +1,12 @@
-from magpie.definitions.twitcher_definitions import AdapterInterface, owsproxy_defaultconfig
-from magpie.definitions.pyramid_definitions import IAuthenticationPolicy, HTTPForbidden, HTTPOk
-from magpie.definitions.ziggurat_definitions import UserService
-from magpie.api.schemas import SigninAPI
-from magpie.api.exception import valid_http, raise_http
 from magpie.adapter.magpieowssecurity import MagpieOWSSecurity
 from magpie.adapter.magpieservice import MagpieServiceStore
-from magpie.security import get_auth_config
+from magpie.api.exception import valid_http, raise_http
+from magpie.api.schemas import SigninAPI
 from magpie.db import get_session_factory, get_tm_session, get_engine
+from magpie.definitions.pyramid_definitions import IAuthenticationPolicy, HTTPForbidden, HTTPOk
+from magpie.definitions.twitcher_definitions import AdapterInterface, owsproxy_defaultconfig
+from magpie.definitions.ziggurat_definitions import UserService
+from magpie.security import get_auth_config
 from magpie.utils import get_logger, get_settings, get_magpie_url, CONTENT_TYPE_JSON
 from magpie import __meta__
 import time

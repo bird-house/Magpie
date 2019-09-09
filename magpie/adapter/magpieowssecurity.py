@@ -21,7 +21,6 @@ from magpie.utils import get_magpie_url, get_settings, get_logger, CONTENT_TYPE_
 from requests.cookies import RequestsCookieJar
 from six.moves.urllib.parse import urlparse
 import requests
-import logging
 LOGGER = get_logger("TWITCHER")
 
 

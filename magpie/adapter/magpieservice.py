@@ -2,11 +2,12 @@
 Store adapters to read data from magpie.
 """
 from magpie.api.exception import verify_param
-from magpie.models import Service as MagpieService
-from magpie.definitions.twitcher_definitions import ServiceStoreInterface, Service, ServiceNotFound
-from magpie.definitions.pyramid_definitions import HTTPOk, asbool, HTTPNotFound
 from magpie.api.schemas import ServicesAPI
+from magpie.definitions.pyramid_definitions import HTTPOk, asbool, HTTPNotFound
+from magpie.definitions.twitcher_definitions import ServiceStoreInterface, Service, ServiceNotFound
+from magpie.models import Service as MagpieService
 from magpie.utils import get_admin_cookies, get_magpie_url, get_settings, get_logger, CONTENT_TYPE_JSON
+from beaker.cache import cache_region
 from typing import TYPE_CHECKING
 import requests
 if TYPE_CHECKING:
@@ -40,6 +41,7 @@ class MagpieServiceStore(ServiceStoreInterface):
         """
         raise NotImplementedError
 
+    @cache_region("adapter")
     def list_services(self, request=None):
         """
         Lists all services registered in magpie.
